@@ -1,21 +1,30 @@
 # CivilCredo
 
-**TODO: Add description**
+CivilCode's in-house Credo rules.
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `civil_credo` to your list of dependencies in `mix.exs`:
+To your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
   [
-    {:civil_credo, "~> 0.1.0"}
+    {:civil_credo, github: "civilcode/civil-credo", only: [:dev, :test], runtime: false},
   ]
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/civil_credo](https://hexdocs.pm/civil_credo).
+and `.credo.exs`.
 
+```elixir
+%{
+  configs: [
+    %{
+      name: "default",
+      plugins: [
+        {CivilCredo, []}
+      ]
+    }
+  ]
+}
+```
