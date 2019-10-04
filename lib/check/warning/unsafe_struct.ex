@@ -18,7 +18,7 @@ defmodule CivilCredo.Check.Warning.UnsafeStruct do
     Credo.Code.prewalk(source_file, &traverse(&1, &2, issue_meta))
   end
 
-  defp traverse( { :struct, meta , _args } = ast, issues, issue_meta ) do
+  defp traverse( { :struct, meta , args } = ast, issues, issue_meta ) when not is_nil(args) do
     {ast, issues_for_call(meta, issues, issue_meta)}
   end
 
