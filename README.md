@@ -21,10 +21,18 @@ and `.credo.exs`.
   configs: [
     %{
       name: "default",
+      # 1. Configure the plugin
       plugins: [
         {CivilCredo, []}
       ]
     }
+  ]
+  checks: [
+    # 2. Add this after existing checks
+    # Custom checks from Plugin
+    #
+    {CivilCredo.Check.Design.TagWip, []},
+    {CivilCredo.Check.Warning.UnsafeStruct, []}
   ]
 }
 ```
