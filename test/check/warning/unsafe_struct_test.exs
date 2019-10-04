@@ -18,7 +18,8 @@ defmodule CivilCredo.Check.Warning.UnsafeStructTest do
       string
       |> to_source_file
       |> assert_issue(@described_check, fn issue ->
-        issue.message == "Use of struct/2 does not ensure all keys are provided (struct!/2 is preferred)"
+        issue.message ==
+          "Use of struct/2 does not ensure all keys are provided (struct!/2 is preferred)"
       end)
     end
 
@@ -37,7 +38,8 @@ defmodule CivilCredo.Check.Warning.UnsafeStructTest do
       string
       |> to_source_file
       |> assert_issue(@described_check, fn issue ->
-        issue.message == "Use of struct/2 does not ensure all keys are provided (struct!/2 is preferred)"
+        issue.message ==
+          "Use of struct/2 does not ensure all keys are provided (struct!/2 is preferred)"
       end)
     end
 
@@ -106,6 +108,21 @@ defmodule CivilCredo.Check.Warning.UnsafeStructTest do
           def build() do
             struct = :bar
             struct |> foo()
+          end
+        end
+      """
+
+      string
+      |> to_source_file
+      |> refute_issues(@described_check)
+    end
+
+    test "allows 'struct' in an ecto query" do
+      string = """
+        defmodule Foo do
+          def build() do
+            from p in Post,
+              select: struct(p, [:title, :body])
           end
         end
       """
