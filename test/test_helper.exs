@@ -1,3 +1,5 @@
+# This test infrastructure is taken from Credo's own test suite
+
 Code.require_file("support/test_application.exs", __DIR__)
 
 Credo.Test.Application.start([], [])
