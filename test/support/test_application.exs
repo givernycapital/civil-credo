@@ -28,11 +28,7 @@ defmodule Credo.Test.Application do
     import Supervisor.Spec, warn: false
 
     children = [
-      worker(Credo.Test.FilenameGenerator, []),
-      worker(Credo.Service.SourceFileAST, []),
-      worker(Credo.Service.SourceFileLines, []),
-      worker(Credo.Service.SourceFileSource, []),
-      worker(Credo.Service.SourceFileScopes, [])
+      worker(Credo.Test.FilenameGenerator, [])
     ]
 
     opts = [strategy: :one_for_one, name: Credo.Test.Application.Supervisor]
