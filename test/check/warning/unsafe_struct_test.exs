@@ -20,6 +20,7 @@ defmodule CivilCredo.Check.Warning.UnsafeStructTest do
       |> assert_issue(@described_check, fn issue ->
         issue.message ==
           "Use of struct/2 does not ensure all keys are provided (struct!/2 is preferred)"
+        && issue.exit_status == 2
       end)
     end
 
@@ -40,6 +41,7 @@ defmodule CivilCredo.Check.Warning.UnsafeStructTest do
       |> assert_issue(@described_check, fn issue ->
         issue.message ==
           "Use of struct/2 does not ensure all keys are provided (struct!/2 is preferred)"
+        && issue.exit_status == 2
       end)
     end
 

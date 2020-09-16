@@ -21,7 +21,7 @@ defmodule CivilCredo.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:credo, "~> 1.1.0", only: [:dev, :test]}
+      {:credo, "~> 1.4", only: [:dev, :test]}
     ]
   end
 end

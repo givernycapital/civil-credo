@@ -16,6 +16,7 @@ defmodule CivilCredo.Check.Design.TagWipTest do
       |> to_source_file
       |> assert_issue(@described_check, fn issue ->
         issue.message == "This test has been tagged with WIP"
+        && issue.exit_status == 2
       end)
     end
   end

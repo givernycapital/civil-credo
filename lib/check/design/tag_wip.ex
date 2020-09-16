@@ -14,7 +14,7 @@ defmodule CivilCredo.Check.Design.TagWip do
     regex: ~r/@(tag|moduletag) :wip/
   ]
 
-  use Credo.Check, base_priority: :high, category: :design, exit_status: 2
+  use Credo.Check, base_priority: :high, category: :design
 
   @doc false
   def run(source_file, params \\ []) do
